@@ -31,19 +31,16 @@ public class Point {
     }
 
     public void move() {
-        this.accelerate();
         int count = 0;
         Point p = this;
-        while (p.next.getType() == 0 && this.acceleration > count) {
+        while (this.acceleration > count) {
             count++;
             p = p.next;
         }
         this.setType(0);
         this.moved = true;
-
         p.setType(1);
         p.setAcceleration(count);
-        p.randomize();
         p.moved = true;
 
     }
@@ -61,6 +58,16 @@ public class Point {
         if (i == 0) {
             this.acceleration = 0;
         }
+    }
+
+    public void slowDown() {
+        int count = 0;
+        Point p = this;
+        while (p.next.getType() == 0 && this.acceleration > count) {
+            count++;
+            p = p.next;
+        }
+        this.setAcceleration(count);
     }
 
     public void setNext (Point p) {
@@ -81,7 +88,8 @@ public class Point {
     }
 
     public void randomize() {
-        if (rand.nextInt(3) % 3 == 0)
-            this.acceleration--;
+        if (this.acceleration >= 1)
+            if (rand.nextInt(2) == 1)
+                this.acceleration--;
     }
 }
