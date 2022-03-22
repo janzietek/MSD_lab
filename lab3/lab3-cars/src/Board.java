@@ -118,21 +118,27 @@ public class Board extends JComponent implements MouseInputListener, ComponentLi
                 // TODO
                 //g.setColor(new Color(R, G, B, 0.7f));
                 if (points[x][y].getType() == 0)
-                    g.setColor(new Color(1f, 1f, 1f, 0.7f));
+                    g.setColor(new Color(255, 255, 255));
                 else
                     switch (points[x][y].getAcceleration()){
                         case 0:
-                            g.setColor(new Color(0f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(255, 100, 100));
+                            break;
                         case 1:
-                            g.setColor(new Color(0.2f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(200, 50, 50));
+                            break;
                         case 2:
-                            g.setColor(new Color(0.4f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(200, 20, 20));
+                            break;
                         case 3:
-                            g.setColor(new Color(0.6f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(150, 20, 20));
+                            break;
                         case 4:
-                            g.setColor(new Color(0.8f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(150, 10, 10));
+                            break;
                         case 5:
-                            g.setColor(new Color(1f, 0f, 0f, 0.7f));
+                            g.setColor(new Color(136, 8, 8 ));
+                            break;
                     }
 
                 g.fillRect((x * size) + 1, (y * size) + 1, (size - 1), (size - 1));
